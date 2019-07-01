@@ -1,0 +1,49 @@
+% Tiago de Freitas Pereira <tiago.pereira@idiap.ch>
+% Draw nice cubes for DCNN reresentations
+
+% Implemented with blood, sweat and tears
+%\pgfdeclarelayer{background}
+%\pgfsetlayers{background}
+\tikzset{
+  annotated cuboid/.pic={
+    \tikzset{%
+      every edge quotes/.append style={midway, auto},
+      /cuboid/.cd,
+      #1
+    }
+    \draw [every edge/.append style={pic actions, solid, opacity=1}, pic actions]
+    (0,0,0)
+     % Frontal part 
+     coordinate (o) -- (0  , \cubey, 0) 
+     coordinate (a) -- (\cubez, \cubey, \cubez) 
+     coordinate (b) -- (\cubez, \cubey, \cubez)
+     coordinate (c) -- (\cubez, 0     , \cubez)% -- cycle
+     coordinate (d) -- (0  , 0     ,0)
+     
+     % Top part
+     coordinate (e) -- (0         , \cubey, 0)
+     coordinate (f) -- (\cubex    , \cubey, 0)
+     coordinate (g) -- (\cubez+\cubex, \cubey, \cubez)
+     coordinate (h) -- (\cubez       , \cubey, \cubez)
+     
+     % Side part
+     coordinate (i) -- (\cubez       , 0      ,\cubez)
+     coordinate (j) -- (\cubez       , \cubey ,\cubez)
+     coordinate (k) -- (\cubez+\cubex, \cubey ,\cubez)
+     coordinate (l) -- (\cubez+\cubex, 0      ,\cubez)
+     coordinate (m) -- (\cubez       , 0      ,\cubez)
+     ;
+  },
+  /cuboid/.search also={/tikz},
+  /cuboid/.cd,
+  width/.store in=\cubex,
+  height/.store in=\cubey,
+  depth/.store in=\cubez,
+  units/.store in=\cubeunits,
+  scale/.store in=\cubescale,
+  width=2,
+  height=1.5,
+  depth=1.5,
+  units=em,
+  scale=.1,
+}

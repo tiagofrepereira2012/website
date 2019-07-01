@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{relsize}
+\usetikzlibrary{backgrounds, arrows}
+\usepackage{amsfonts} %For mathcal, mathbb, etc
+\usepackage{amsmath} %For lVert
+
+
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}
+
+
+\include{glorious_cube}
+
+
+%Apricot
+%YellowGreen
+%NavyBlue
+
+\tikzset{fontscale/.style = {font=\relsize{#1}}}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FORWARD
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Source domain  
+  
+\begin{tikzpicture}
+
+  %\node (item) at (12, 1) [fontscale=25] {(a)};
+  %\node (loss) at (20.0, -1.7) [fontscale=25] {$\mathcal{L}([\theta_s, \theta_t])$};
+  %\node (last_layer) at (17.5,-1.7) [fontscale=25] {};  
+  %\draw [->, line width=0.3em] (last_layer) -- (loss);
+
+%%%%%%% FROM DSU to DI
+
+\node (marker_di1) at (7.8, -3) {};
+\node (marker_dsu1) at (5.7,-2) {};
+\draw [->, line width=0.2em] (marker_dsu1) to [out=90, in=45, looseness=1.5] (marker_di1);
+
+
+%\node (marker_di2) at (8.2, -4.2) {};
+%\node (marker_dsu2) at (5.7,-5) {};
+%\draw [->, line width=0.2em] (marker_dsu2) -- (marker_di2);
+
+
+\node (marker_di3) at (8.2, -6.2) {};
+\node (marker_dsu3) at (5.7,-8) {};
+%\draw [->, line width=0.2em] (marker_dsu3) -- (marker_di3);
+\draw [->, line width=0.2em] (marker_dsu3) to [out=-90, in=-45, looseness=1.5] (marker_di3);
+
+
+%\node (marker_dsu2) at (5.7,-5) {};
+%\node (marker_dsu3) at (5.7,-10) {};
+%\draw [->, line width=0.2em] (marker_dsu2) -- (marker_di);
+%\draw [->, line width=0.2em] (marker_dsu3) -- (marker_di);
+  
+
+  %%%%%%%%%%%%%% Domain Independent
+
+  \pic [fill=SkyBlue, text=green!50!black, draw=black!25!black] at (17.7,-3.9, 2) {annotated cuboid={width=.6, height=1, depth=2.5}};
+
+  \pic [fill=SkyBlue, text=green!50!black, draw=black!25!black] at (17,-3.9, 2) {annotated cuboid={width=.6, height=1, depth=2.5}};
+
+  \node (dots) at (15.5, -4.7) [fontscale=30] {....};
+
+  \pic [fill=YellowGreen, text=green!50!black, draw=black!25!black] at (13,-5.0, 0) {annotated cuboid={width=1, height=1.5, depth=1.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (11.7,-5.0, 0) {annotated cuboid={width=1, height=1.5, depth=1.5}};
+
+  \pic [fill=YellowGreen, text=green!50!black, draw=black!25!black] at (10.8,-5.2, 0) {annotated cuboid={width=0.6, height=1.8, depth=1.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (9.9,-5.2, 0) {annotated cuboid={width=0.6, height=1.8, depth=1.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (9.2,-5.2, 0) {annotated cuboid={width=0.6, height=1.8, depth=1.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (8.5,-5.2, 0) {annotated cuboid={width=0.6, height=1.8, depth=1.5}};
+
+  \pic [fill=YellowGreen, text=green!50!black, draw=black!25!black] at (7.5,-5, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Domain 0
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (5.3,-2, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (5,-2, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (4.7,-2, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  % INPUT
+  %\node (input_d0) at (1.5, -0.7) {\includegraphics [width=5em] {HFR_SCHEMA/VIS.png}};
+  %\node (input_layer) at (4.7, -0.7) [fontscale=25] {};
+  %\node (VIS) at (1.5, -2.3) [fontscale=4] {VIS};
+  %\draw [->, line width=0.3em] (input_d0) -- (input_layer);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Domain 1
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (5.3,-5, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (5  ,-5, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (4.7,-5, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  % INPUT
+  %\node (input_d1) at (1.5, -4.2) {\includegraphics [width=5em] {HFR_SCHEMA/N_VIS-NIR}};
+  %\node (input_layer) at (4.7, -4.2) [fontscale=25] {};
+  %\node (NIR) at (1.5, -5.9) [fontscale=4] {NIR};
+  %\draw [->, line width=0.3em] (input_d1) -- (input_layer);
+  
+  %\node (input_T) at (2.5, -5) [fontscale=25] {$x_t^{p}$};  
+  %\node (input_layer_T) at (4.5, -5) [fontscale=25] {};
+  %\draw [->, line width=0.3em] (input_T) -- (input_layer_T);
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Domain 2
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (5.3,-10, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (5  ,-10, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  \pic [fill=Apricot, text=green!50!black, draw=black!25!black] at (4.7,-10, 0) {annotated cuboid={width=0.2, height=2, depth=2.5}};
+
+  % INPUT
+  %\node (infinity) at (5.2, -7)[fontscale=35, text width=1em]{.};
+  \node (infinity) at (5.7, -6.4)[mark size=0.3em, color=black]{\pgfuseplotmark{*}};
+  \node (infinity) at (5.7, -6.9)[mark size=0.3em, color=black]{\pgfuseplotmark{*}};
+  \node (infinity) at (5.7, -7.4)[mark size=0.3em, color=black]{\pgfuseplotmark{*}};  
+
+  
+  %\node (input_d2) at (1.5, -9.2) {\includegraphics [width=7em] {HFR_SCHEMA/S-VIS-SKE}};
+  %\node (input_layer) at (4.7, -9.2) [fontscale=25] {};
+  %\node (NIR) at (1.5, -10.9) [fontscale=4] {Sketch};  
+  %\draw [->, line width=0.3em] (input_d2) -- (input_layer);
+  
+  
+  %\node (input_T) at (2.5, -8.5) [fontscale=25] {$x_t^{n}$};  
+  %\node (input_layer_T) at (4.5, -8.5) [fontscale=25] {};
+  %\draw [->, line width=0.3em] (input_T) -- (input_layer_T);
+
+  % HIGHLIGHT
+  %\node (highlight) at (5.7, -6.9) [fontscale=25, draw=blue, text width=8em, text height=18em, rounded corners, very thick] {};
+  %\node (label) at (9.3, -9.5)[fontscale=3, text width=11em]{Domain Specific Units};
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% HIGH-LIGHTS
+\node (highlight_dsu) at (5.7, -5.3) [fontscale=25, draw=blue, text width=8em, text height=32em, rounded corners, very thick] {};
+\node (label_dsu) at (10, -9.5)[fontscale=3, text width=15em]{Domain Specific Units};
+
+%\node (highlight_di) at (15.5, -4.3) [fontscale=25, draw=blue, text width=35em, text height=10em, rounded corners, very thick] {};
+\node (label_di) at (16, -6.5)[fontscale=3, text width=15em]{Domain Independent Feature Detectors};
+
+
+
+
+\end{tikzpicture}
+
+
+
+\end{document}
+
+
